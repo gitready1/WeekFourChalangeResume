@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<h2>My Resume</h2>
+<p th:text="${resume.email}"></p>
+<h3> Education</h3>
+<p th:text="${resume.education}"></p>
+<h3> Experience</h3>
+<p th:text="${resume.experience}"></p>
+<h3> Skills</h3>
+<p th:text="${resume.skills}"></p>
+</body>
+</html>
