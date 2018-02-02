@@ -32,7 +32,7 @@ public class MainController {
     @PostMapping("/process")
     public String processForm(@Valid @ModelAttribute("resume") Resume resume, BindingResult result, Model model) {
         if (result.hasErrors()) {
-//Issue: Problem recognizing errors, need to fix
+
             return "confirm";
         }
 
@@ -40,47 +40,28 @@ public class MainController {
         resumeRepository.save(resume);
         return "redirect:/";
 
+
+
     }
 
+    @GetMapping("/education")
+    public String educationForm(Model model) {
 
-
-
-
-
-
-
-       /* @GetMapping("/add")
-        public String ResumeForm(Model model) {
-
-            model.addAttribute("resume", new Resume());
-            return "resumeform";*/
-
-          /*  @RequestMapping("/detail/{id}")
-            public String showPeople(@PathVariable("id") long id, Model model) {
-                model.addAttribute("people", resumeRepository.findOne(id));
-                return "peopleform";
-        model.addAttribute("resume",new Resume());
-        return "peopleform";
+        model.addAttribute("education", new Education());
+        return "list";
     }
+    @GetMapping("/experience")
+    public String experienceForm(Model model) {
 
-    @RequestMapping("/add")
-    public String addEducation(Model model){
-        model.addAttribute("resume", new Resume());
-        return "resumeform";
+        model.addAttribute("experience", new Education());
+        return "list";
     }
+    public String skillsForm(Model model) {
 
-    @PostMapping("/add")
-    public String processEducation(@Valid @ModelAttribute ("resume") Resume resume, BindingResult result, Model model){
-        if (result.hasErrors()){
-            return "resumeform";
-        }
-        //here save to database
-
-        return "redirect:/";
-        model.addAttribute("resume", resume);
-        return "resumeform";*/
+        model.addAttribute("skills", new Skills());
+        return "list";
     }
-
+}
 
 
 
