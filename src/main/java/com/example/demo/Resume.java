@@ -31,6 +31,20 @@ public class Resume {
     @NotEmpty
     private String education;
 
+    @NotNull
+    @NotEmpty
+    private String bachelor;
+
+    @NotNull
+    @NotEmpty
+    private String master;
+
+
+
+    @NotNull
+    @NotEmpty
+    private String Major;
+
 //    private String education2;
 //
 //    private String education3;
@@ -39,7 +53,12 @@ public class Resume {
     @NotNull
     @NotEmpty
     private String experience;
-
+    @NotNull
+    @NotEmpty
+    private String developer;
+    @NotNull
+    @NotEmpty
+    private String developer2;
 
 
     @NotNull
@@ -110,9 +129,44 @@ public class Resume {
     }
 
 
+    public String getBachelor() {
+        return bachelor;
+    }
+
+    public void setBachelor(String bachelor) {
+        this.bachelor = bachelor;
+    }
+
+    public String getMaster() {
+        return master;
+    }
+
+    public void setMaster(String master) {
+        this.master = master;
+    }
+
+    public String getMajor() {
+        return Major;
+    }
+
+    public void setMajor(String major) {
+        Major = major;
+    }
+
+    public String getDeveloper() {
+        return developer;
+    }
+
+    public void setDeveloper(String developer) {
+        this.developer = developer;
+    }
 
 
+    public String getDeveloper2() {
+        return developer2;
+    }
 
-
-
+    public void setDeveloper2(String developer2) {
+        this.developer2 = developer2;
+    }
 }

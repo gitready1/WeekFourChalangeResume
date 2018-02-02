@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
     <title>Title</title>
 </head>
 <body>
@@ -13,13 +13,29 @@
     Education:<input type="text" th:field=" *{education}"/>
     <span th:if="${#fields.hasErrors('education')}"
           th:errors="*{education}"></span><br/>
+    Master:<input type="text" th:field=" *{master}"/>
+    <span th:if="${#fields.hasErrors('bachelor')}"
+          th:errors="*{master}"></span><br/>
+    Bachelor:<input type="text" th:field=" *{bachelor}"/>
+    <span th:if="${#fields.hasErrors('bachelor')}"
+          th:errors="*{bachelor}"></span><br/>
     Experience:<input type="text" th:field=" *{experience}"/>
     <span th:if="${#fields.hasErrors('experience')}"
           th:errors="*{experience}"></span><br/>
+    Developer:<input type="text" th:field=" *{developer}"/>
+    <span th:if="${#fields.hasErrors('developer')}"
+          th:errors="*{developer}"></span><br/>
+    Developer2:<input type="text" th:field=" *{developer2}"/>
+    <span th:if="${#fields.hasErrors('developer2')}"
+          th:errors="*{developer2}"></span><br/>
     Skills:<input type="text" th:field=" *{skills}"/>
     <span th:if="${#fields.hasErrors('skills')}"
           th:errors="*{skills}"></span><br/>
+
+
     <input type="submit" value="submit" />
 </form>
+
+
 </body>
 </html>
