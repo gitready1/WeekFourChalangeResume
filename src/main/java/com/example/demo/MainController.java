@@ -19,13 +19,12 @@ public class MainController {
 
     @RequestMapping("/")
     public String createResume(Model model) {
-        Resume resume = new Resume();
-        model.addAttribute("resume",resume);
+        model.addAttribute("resume",new Resume());
         return "resumeform";
     }
 
     @PostMapping("/process")
-    public String processform(@Valid Resume resume ,BindingResult result) {
+    public String processForm(@Valid Resume resume,BindingResult result) {
         if (result.hasErrors()){
 
             return "resumeform";

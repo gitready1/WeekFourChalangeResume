@@ -31,9 +31,9 @@ public class Resume {
     @NotEmpty
     private String education;
 
-    private String education2;
-
-    private String education3;
+//    private String education2;
+//
+//    private String education3;
 
 
     @NotNull
