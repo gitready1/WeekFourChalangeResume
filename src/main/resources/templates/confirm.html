@@ -1,36 +1,51 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="www.thymeleaf.org">
+<html lang="en" xmlns:th="www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8"/>
     <title>Resume</title>
 </head>
 <body>
 
 <h1>My Resume</h1>
 <h3> Name</h3>
-<p th:text="${resume.email}"></p>
-<h3> Address</h3>
-<p th:text="${resume.email}"></p>
-<h3> Email</h3>
-<p th:text="${resume.email}"></p>
-<h3> Education</h3>
-<p th:text="${resume.education}"></p>
-<a href="/list"> Add Education</a><br />
-<p> <B>Master in Computer Science</B></p>
-<p th:text="${resume.bachelor}"></p>
-<body> <B>Bachelor in Computer Science</B></body>
-<p th:text="${resume.bachelor}"></p>
-<h3> Experience</h3>
-<p th:text="${resume.experience}"></p>
-<a href="/list"> Add Experiences</a><br />
-<p> Software Developer</p>
-<p th:text="${resume.developer}"></p>
-<p> Software Developer</p>
-<p th:text="${resume.developer}"></p>
-<h3> Skills</h3>
-<p th:text="${resume.skills}"></p>
-<a href="/list"> Add Skills</a><br />
+<div th:each="resume : ${resumes}">
+    <p th:text="${resume.name}"></p>
+    <h3> phone</h3>
+    <p th:text="${resume.phone}"></p>
+    <h3> Email</h3>
+    <p th:text="${resume.email}"></p>
+</div>
 
+<div th:each="education : ${educations}">
+<p th:text="${education.major}"></p>
+
+<p th:text="${education.level}"></p>
+
+</div>
+<!--<p th:text="${resume.education}"></p>-->
+<!--<a th:href="@{/education}"> Add Education</a><br />-->
+<!--<p> <B>Master in Computer Science</B></p>-->
+<!--<p th:text="${resume.bachelor}"></p>-->
+<!--<body> <B>Bachelor in Computer Science</B></body>-->
+<!--<p th:text="${resume.bachelor}"></p>-->
+<!--<h3> Experience</h3>-->
+<!--<p th:text="${resume.experience}"></p>-->
+<!--<a href="@{/experience/{id}(id=${resume.id})}"> Add Experiences</a><br />-->
+<!--<p> Software Developer</p>-->
+<!--<p th:text="${resume.developer}"></p>-->
+<!--<p> Software Developer</p>-->
+<!--<p th:text="${resume.developer}"></p>-->
+<!--<h3> Skill</h3>-->
+<!--<p th:text="${resume.Skill}"></p>-->
+
+
+<a href="/add"> Add Resume</a><br />
+
+<a href="/education"> Add Education</a><br />
+
+<a href="/experience ">Add Experience</a><br/>
+
+<a href="/skill"> Add Skills</a><br />
 
 
 </body>
