@@ -15,10 +15,20 @@ public class MainController {
     @Autowired
     ResumeRepository resumeRepository;
 
+    @Autowired
+    EducationRepository educationRepository;
+
+    @Autowired
+    ExperienceRepository experienceRepository;
+
+    @Autowired
+    SkillsRepository skillsRepository;
+
+
     @RequestMapping("/")
     public String listResume(Model model) {
-        model.addAttribute("people", resumeRepository.findAll());
-        return "list";
+        model.addAttribute("resumes", resumeRepository.findAll());
+        return "confirm";
     }
 
     @GetMapping("/add")
@@ -35,33 +45,86 @@ public class MainController {
 
             return "confirm";
         }
-
-
         resumeRepository.save(resume);
         return "redirect:/";
 
+    }
 
-
+    @RequestMapping("/a")
+    public String listEducation(Model model) {
+        model.addAttribute("educations", educationRepository.findAll());
+        return "confirm";
     }
 
     @GetMapping("/education")
     public String educationForm(Model model) {
 
         model.addAttribute("education", new Education());
-        return "list";
+        return "educationform";
     }
+
+    @PostMapping("/educationprocess")
+    public String educationProcessForm(@Valid @ModelAttribute("education") Education education, BindingResult result, Model model) {
+        if (result.hasErrors()) {
+
+            return "educationform";
+        }
+        educationRepository.save(education);
+        return "redirect:/a";
+    }
+
+
+    @RequestMapping("/b")
+    public String listexperience(Model model) {
+        model.addAttribute("experiences", experienceRepository.findAll());
+        return "confirm";
+    }
+
     @GetMapping("/experience")
     public String experienceForm(Model model) {
 
-        model.addAttribute("experience", new Education());
-        return "list";
+        model.addAttribute("experience", new Experience());
+        return "experienceform";
     }
-    public String skillsForm(Model model) {
 
-        model.addAttribute("skills", new Skills());
-        return "list";
+    @PostMapping("/experienceprocess")
+    public String experienceProcessForm(@Valid @ModelAttribute("experience") Experience experience, BindingResult result, Model model) {
+        if (result.hasErrors()) {
+
+            return "confirm";
+        }
+        experienceRepository.save(experience);
+        return "redirect:/b";
     }
+
+
+    @RequestMapping("/c")
+    public String listskills(Model model) {
+        model.addAttribute("educations", skillsRepository.findAll());
+        return "confirm";
+    }
+
+
+    @GetMapping("/skills")
+    public String skillForm(Model model) {
+
+        model.addAttribute("skill", new Skill());
+        return "skillform";
+    }
+
+    @PostMapping("/skillprocess")
+    public String SkillsProcessForm(@Valid @ModelAttribute("skill") Skill skill, BindingResult result, Model model) {
+        if (result.hasErrors()) {
+
+            return "confirm";
+        }
+        skillsRepository.save(skill);
+        return "redirect:/c";
+    }
+
+
 }
+
 
 
 

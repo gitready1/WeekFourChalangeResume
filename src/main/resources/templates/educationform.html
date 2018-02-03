@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<body>
+
+
+<form th:action="@{/process}" th:object="${education}" method="post">
+    <input type ="hidden" th:field=" *{id}"/>
+    Level:<input type="text" th:field=" *{level}"/>
+    <span th:if="${#fields.hasErrors('level')}"
+          th:errors="*{level}"></span><br/>
+
+    Major:<input type="text" th:field=" *{major}"/>
+    <span th:if="${#fields.hasErrors('major')}"
+          th:errors="*{major}"></span><br/>
+
+    <input type="submit" value="submit" />
+
+</body>
+</html>
