@@ -7,7 +7,7 @@
 <body>
 
 
-<form th:action="@{/process}" th:object="${education}" method="post">
+<form th:action="@{/educationprocess}" th:object="${education}" method="post">
     <input type ="hidden" th:field=" *{id}"/>
     Level:<input type="text" th:field=" *{level}"/>
     <span th:if="${#fields.hasErrors('level')}"

@@ -67,7 +67,7 @@ public class MainController {
     public String educationProcessForm(@Valid @ModelAttribute("education") Education education, BindingResult result, Model model) {
         if (result.hasErrors()) {
 
-            return "educationform";
+            return "confirm";
         }
         educationRepository.save(education);
         return "redirect:/a";
@@ -100,12 +100,12 @@ public class MainController {
 
     @RequestMapping("/c")
     public String listskills(Model model) {
-        model.addAttribute("educations", skillsRepository.findAll());
+        model.addAttribute("skills", skillsRepository.findAll());
         return "confirm";
     }
 
 
-    @GetMapping("/skills")
+    @GetMapping("/skill")
     public String skillForm(Model model) {
 
         model.addAttribute("skill", new Skill());

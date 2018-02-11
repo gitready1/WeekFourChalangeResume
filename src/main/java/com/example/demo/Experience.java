@@ -17,10 +17,14 @@ public class Experience {
 
     @NotNull
     @NotEmpty
-    private String java;
+    private String developer;
     @NotNull
     @NotEmpty
-    private String sql;
+    private String developer1;
+    public Experience() {
+
+
+    }
 
     public long getId() {
         return id;
@@ -30,25 +34,20 @@ public class Experience {
         this.id = id;
     }
 
-    public String getJava() {
-        return java;
+    public String getDeveloper() {
+        return developer;
     }
 
-    public void setJava(String java) {
-        this.java = java;
+    public void setDeveloper(String developer) {
+        this.developer = developer;
     }
 
-    public String getSql() {
-        return sql;
+    public String getDeveloper1() {
+        return developer1;
     }
 
-    public void setSql(String sql) {
-        this.sql = sql;
-    }
-
-    public Experience() {
-
-
+    public void setDeveloper1(String developer1) {
+        this.developer1 = developer1;
     }
 }
 

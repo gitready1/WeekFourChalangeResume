@@ -1,0 +1,35 @@
+h1{
+    font-weight:bold;
+    font-size:100px;
+    background-color:blue;
+
+}
+
+img{
+
+    width:60%;
+    height: 60px;
+}
+
+.headerclass{
+    color:#802934;
+
+}
+
+.greentext{
+    color: #2a8060;
+
+}
+
+#exampleInputEmail1{
+    color:brown;
+}
+
+h2{
+    font-family: 'Pacifico', cursive;
+}
+
+.navbar
+{
+    background-color:blue;
+}

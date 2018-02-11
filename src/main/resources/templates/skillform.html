@@ -6,7 +6,7 @@
 </head>
 <body>
 
-<form th:action="@{/process}" th:object="${skill}" method="post">
+<form th:action="@{/skillprocess}" th:object="${skill}" method="post">
     <input type ="hidden" th:field=" *{id}"/>
     Java:<input type="text" th:field=" *{java}"/>
     <span th:if="${#fields.hasErrors('java')}"

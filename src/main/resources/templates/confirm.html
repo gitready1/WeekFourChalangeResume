@@ -3,11 +3,52 @@
 <head>
     <meta charset="UTF-8"/>
     <title>Resume</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"/>
+    <link href="./css/stylesheet.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
 </head>
 <body>
 
-<h1>My Resume</h1>
-<h3> Name</h3>
+ <h1>My Resume</h1>
+<p>Bishnu Subedi</p>
+<p> Subedib0@gmail.com</p>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm">
+           <h3> Education</h3>
+
+
+            MS in Computer Information Science,
+            2016 <br/>
+
+            BS in Computer Information System,
+            2014 <br/>
+
+            AAS in Information Technology 2013<br />
+            <a href="/education"> Add Education</a>
+
+        </div>
+        <div class="col-sm">
+
+            <h4> Experience</h4>
+            Care manager/ Med Tech<br/>
+
+            Retail Associate<br/>
+            <a href="/experience ">Add Experience</a><br/>
+        </div>
+        <div class="col-sm ">
+            <h4> Skills</h4>
+            SQL<br/>
+            Java<br/>
+            <a href="/skill"> Add Skills</a><br /> <br />
+        </div>
+    </div>
+</div>
+
+
+<a href="/add"> Add Resume</a><br />
+
 <div th:each="resume : ${resumes}">
     <p th:text="${resume.name}"></p>
     <h3> phone</h3>
@@ -16,12 +57,33 @@
     <p th:text="${resume.email}"></p>
 </div>
 
+<a href="/education"> Add Education</a><br />
+
 <div th:each="education : ${educations}">
 <p th:text="${education.major}"></p>
 
 <p th:text="${education.level}"></p>
 
 </div>
+<a href="/experience ">Add Experience</a><br/>
+
+<div th:each="experience : ${experiences}">
+    <p th:text="${experience.developer}"></p>
+
+    <p th:text="${experience.developer1}"></p>
+
+</div>
+
+<a href="/skill"> Add Skills</a><br />
+<div th:each="skill : ${skills}">
+    <p th:text="${skill.java}"></p>
+
+    <p th:text="${skill.sql}"></p>
+
+</div>
+
+
+
 <!--<p th:text="${resume.education}"></p>-->
 <!--<a th:href="@{/education}"> Add Education</a><br />-->
 <!--<p> <B>Master in Computer Science</B></p>-->
@@ -38,14 +100,6 @@
 <!--<h3> Skill</h3>-->
 <!--<p th:text="${resume.Skill}"></p>-->
 
-
-<a href="/add"> Add Resume</a><br />
-
-<a href="/education"> Add Education</a><br />
-
-<a href="/experience ">Add Experience</a><br/>
-
-<a href="/skill"> Add Skills</a><br />
 
 
 </body>

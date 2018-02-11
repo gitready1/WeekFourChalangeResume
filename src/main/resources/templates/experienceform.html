@@ -5,15 +5,15 @@
     <title>Title</title>
 </head>
 <body>
-<form th:action="@{/process}" th:object="${experience}" method="post">
+<form th:action="@{/experienceprocess}" th:object="${experience}" method="post">
     <input type ="hidden" th:field=" *{id}"/>
-    Developer:<input type="text" th:field=" *{sql}"/>
-    <span th:if="${#fields.hasErrors('sql')}"
-          th:errors="*{sql}"></span><br/>
+    Developer:<input type="text" th:field=" *{developer}"/>
+    <span th:if="${#fields.hasErrors('developer')}"
+          th:errors="*{developer}"></span><br/>
 
-    Develoter2:<input type="text" th:field=" *{java}"/>
-    <span th:if="${#fields.hasErrors('java')}"
-          th:errors="*{java}"></span><br/>
+    Develoter1:<input type="text" th:field=" *{developer1}"/>
+    <span th:if="${#fields.hasErrors('developer1')}"
+          th:errors="*{developer1}"></span><br/>
 
 
 
