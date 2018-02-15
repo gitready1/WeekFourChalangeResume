@@ -50,6 +50,18 @@ public class MainController {
 
     }
 
+    @GetMapping("/login")
+    public String Usercheck(Model model) {
+
+
+        return "login";
+    }
+    @GetMapping("/summary")
+    public String Summary(Model model) {
+
+
+        return "summary";
+    }
     @RequestMapping("/a")
     public String listEducation(Model model) {
         model.addAttribute("educations", educationRepository.findAll());
