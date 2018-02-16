@@ -13,17 +13,7 @@
 <nav th:replace="confirm :: navbarfragement"></nav>
 <div class="container">
 
-    <div>
 
-<h4> Experience</h4>
-Care manager/ Med Tech<br/>
-<p> Sunrise Senior Living, Silver Spring MD and Falls Church VA, Jan 2013 - Present</p>
-
-Retail Associate<br/>
-<p>MC Books and More, Montgomery College, Rockville, MD	Aug 2010 -May 2013</p>
-<a href="/experience ">Add Experience</a><br/>
-</div>
-<div>
 <form th:action="@{/experienceprocess}" th:object="${experience}" method="post">
     <input type ="hidden" th:field=" *{id}"/>
     Developer:<input type="text" th:field=" *{developer}"/>
@@ -35,21 +25,10 @@ Retail Associate<br/>
           th:errors="*{developer1}"></span><br/>
 
 
-
-
-
-
-
     <input type="submit" value="submit" />
 </form>
 
-<div>
-    <h4> Experience</h4>
-    Care manager/ Med Tech<br/>
 
-    Retail Associate<br/>
-    <a href="/experience ">Add Experience</a><br/>
-</div>
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>

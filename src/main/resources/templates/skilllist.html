@@ -15,25 +15,19 @@
     <div>
 
 
-        <h3> Education</h3>
-        </p> M.S., Computer Information Science <br/>
-        Dec. 2016 American College of Commerce and Technology , Falls Church VA</p>
-
-        <p>  B.S., Computer Information Systems, Sept. 2015,<br/>
-            American College of Commerce and Technology, Falls Church VA<br/></p>
-        <p>  A.A.S, Information Technologies, May 2013,<br/> Montgomery College, Rockville MD<br/>
-
-        </p>
-        <a href="/education"> Add Education</a>
+        <h4> Skills</h4>
+        SQL<br/>
+        Java<br/>
+        <a href="/skill"> Add Skills</a>
 
 
-        <div th:each="education : ${educations}">
-            <p th:text="${education.major}"></p>
-            <h3> phone</h3>
-            <p th:text="${education.major}"></p>
-            <h3> Email</h3>
+        <div th:each="skill : ${skills}">
+            <p th:text="${skill.Java}"></p>
+            <h3> SQL</h3>
+            <p th:text="${skill.sql}"></p>
+            <h3> Java</h3>
 
-            <a th:href="@{/update/education/{id}(id=${education.id})}"> Update Education</a>
+            <a th:href="@{/update/skill/{id}(id=${skill.id})}"> Update Skills</a>
         </div>
 
     </div>

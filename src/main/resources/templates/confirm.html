@@ -34,7 +34,7 @@
                 <a class="nav-link" th:href="@{/a}">Education</a>
             </li>
             <li class="nav-item" th:classappend="(${active}=='link')? 'active':''">
-                <a class="nav-link" th:href="@{/skill}">Skills</a>
+                <a class="nav-link" th:href="@{/c}">Skills</a>
             </li>
             <li class="nav-item" th:classappend="(${active}=='link')? 'active':''">
                 <a class="nav-link" th:href="@{/b}">Experience</a>
@@ -118,69 +118,37 @@
     <h3> Email</h3>
     <p th:text="${resume.email}"></p>
      <a th:href="@{/update/resume/{id}(id=${resume.id})}"> Update Resume</a>
-</div>
+<!--</div>-->
 
-<a href="/education"> Add Education</a><br />
+<!--<a href="/education"> Add Education</a><br />-->
 
-<div th:each="education : ${educations}">
-<p th:text="${education.major}"></p>
+<!--<div th:each="education : ${educations}">-->
+<!--<p th:text="${education.major}"></p>-->
 
-<p th:text="${education.level}"></p>
+<!--<p th:text="${education.level}"></p>-->
 
-</div>
-<a href="/experience ">Add Experience</a><br/>
+<!--</div>-->
+<!--<a href="/experience ">Add Experience</a><br/>-->
 
-<div th:each="experience : ${experiences}">
-    <p th:text="${experience.developer}"></p>
+<!--<div th:each="experience : ${experiences}">-->
+    <!--<p th:text="${experience.developer}"></p>-->
 
-    <p th:text="${experience.developer1}"></p>
+    <!--<p th:text="${experience.developer1}"></p>-->
 
-</div>
+<!--</div>-->
 
-<a href="/skill"> Add Skills</a><br />
-<div th:each="skill : ${skills}">
-    <p th:text="${skill.java}"></p>
+<!--<a href="/skill"> Add Skills</a><br />-->
+<!--<div th:each="skill : ${skills}">-->
+    <!--<p th:text="${skill.java}"></p>-->
 
-    <p th:text="${skill.sql}"></p>
+    <!--<p th:text="${skill.sql}"></p>-->
 
-</div>
-</div>
-
-  <!--<table></table>  </tr>-->
-
-    <!--<tr th:each="resume : ${resumes}">-->
-        <!--<td th:text="${resume.name}"> </td>-->
-        <!--<td th:text="${resume.email}"> </td>-->
-        <!--<td th:text="${resume.phone}"> </td>-->
-
-        <!--<td>-->
-
-            <!--<a th:href="@{/editresume/{id}(id=${resume.id})}"> Edit Resume</a>-->
-            <!--<a th:href="@{/editeducation/{id}(id=${education.id})}"> Edit Education</a> - -->
-            <!--<a th:href="@{/editexperience/{id}(id=${experience.id})}"> Edit Experience</a>-->
-            <!--<a th:href="@{/editskill/{id}(id=${experience.id})}"> Delete Skills</a>-->
-
-        <!--</td>-->
-    <!--</tr>-->
-    <!--</table>-->
-</div>
+<!--</div>-->
+<!--</div>div-->
 
 
-<!--<p th:text="${resume.education}"></p>-->
-<!--<a th:href="@{/education}"> Add Education</a><br />-->
-<!--<p> <B>Master in Computer Science</B></p>-->
-<!--<p th:text="${resume.bachelor}"></p>-->
-<!--<body> <B>Bachelor in Computer Science</B></body>-->
-<!--<p th:text="${resume.bachelor}"></p>-->
-<!--<h3> Experience</h3>-->
-<!--<p th:text="${resume.experience}"></p>-->
-<!--<a href="@{/experience/{id}(id=${resume.id})}"> Add Experiences</a><br />-->
-<!--<p> Software Developer</p>-->
-<!--<p th:text="${resume.developer}"></p>-->
-<!--<p> Software Developer</p>-->
-<!--<p th:text="${resume.developer}"></p>-->
-<!--<h3> Skill</h3>-->
-<!--<p th:text="${resume.Skill}"></p>-->
+
+
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>

@@ -149,7 +149,7 @@ public class MainController {
     @RequestMapping("/c")
     public String listskills(Model model) {
         model.addAttribute("skills", skillsRepository.findAll());
-        return "confirm";
+        return "skilllist";
     }
 
 
@@ -164,7 +164,7 @@ public class MainController {
     public String SkillsProcessForm(@Valid @ModelAttribute("skill") Skill skill, BindingResult result, Model model) {
         if (result.hasErrors()) {
 
-            return "confirm";
+            return "skillform";
         }
         skillsRepository.save(skill);
         return "redirect:/c";
