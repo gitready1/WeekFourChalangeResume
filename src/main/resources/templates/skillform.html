@@ -15,17 +15,16 @@
     SQL:<input type="text" th:field=" *{sql}"/>
     <span th:if="${#fields.hasErrors('sql')}"
           th:errors="*{sql}"></span><br/>
-
-
-
-
-
-
-
     <input type="submit" value="submit" />
 </form>
 
+<div>
+    <h4> Skills</h4>
+    SQL<br/>
+    Java<br/>
+    <a href="/skill"> Add Skills</a><br /> <br />
 
+</div>
 
 </body>
 </html>

@@ -5,22 +5,18 @@
     <title>Title</title>
 </head>
 <body>
-<a href="/add"> </a><br />
+<a href="/add">Add a Resume </a><br />
 
 
 <table>
-
+    <th>Name</th>
+    <th>Email</th>
+    <th>Phone</th>
     <tr th:each="resume : ${resume}">
-        <td th:text="${resume.skills}"> </td>
-        <td th:text="${resume.education}"> </td>
-        <td th:text="${resume.experience}"> </td>
-
+        <td th:text="${resume.name}"> </td>
+        <td th:text="${resume.email}"> </td>
+        <td th:text="${resume.phone}"> </td>
         <td>
-
-
-
-
-
         </td>
     </tr>
 </table>

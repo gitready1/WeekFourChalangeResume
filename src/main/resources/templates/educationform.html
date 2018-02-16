@@ -3,9 +3,13 @@
 <head>
     <meta charset="UTF-8"/>
     <title>Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"/>
+    <link href="./css/stylesheet.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
 </head>
 <body>
 
+<nav th:replace="confirm :: navbarfragement"></nav>
 
 <form th:action="@{/educationprocess}" th:object="${education}" method="post">
     <input type ="hidden" th:field=" *{id}"/>
@@ -18,6 +22,31 @@
           th:errors="*{major}"></span><br/>
 
     <input type="submit" value="submit" />
+
+
 </form>
+
+<div class="container">
+    <div>
+
+        <h3> Education</h3>
+
+
+        MS in Computer Information Science,
+        2016 <br/>
+
+        BS in Computer Information System,
+        2014 <br/>
+
+        AAS in Information Technology 2013<br />
+        <a href="/education"> Add Education</a>
+
+    </div>
+</div>
+
+  <!--<p>  <label for="Image">Image URL</label>-->
+      <!--<input th:field="${logo.image}" type="text" placeholder="Please Enter Image URL" />-->
+
+<!--</p>-->
 </body>
 </html>

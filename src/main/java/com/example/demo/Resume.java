@@ -31,6 +31,20 @@ public class Resume {
     @NotEmpty
     private String phone;
 
+    private String image;
+
+
+
+
+
+
+    public Resume(String name, String email, String phone, String image) {
+        this.name = name;
+        this.email = email;
+        this.phone = phone;
+        this.image = image;
+    }
+
 
 //    private String education2;
 //
@@ -46,11 +60,7 @@ public class Resume {
     }
 
 
-    public Resume(String name, String email, String phone) {
-        this.name = name;
-        this.email = email;
-        this.phone = phone;
-    }
+
 
 
     public String getPhone() {
@@ -85,7 +95,11 @@ public class Resume {
         this.email = email;
     }
 
+    public String getImage() {
+        return image;
+    }
 
-
-
-   }
+    public void setImage(String image) {
+        this.image = image;
+    }
+}

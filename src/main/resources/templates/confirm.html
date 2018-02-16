@@ -9,6 +9,7 @@
 </head>
 <body>
 <nav th:fragment="navbarfragement" class="navbar navbar-expand-lg navbar-light bg-light">
+<!--<div class="row" th:fragment="navbar">-->
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -16,10 +17,12 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item" th:classappend="(${active}=='home')? 'active':''">
-                <a class="nav-link" href="#">Home <!-- <span class="sr-only">(current)</span>--></a>
+                <a class="nav-link" href="/">Home <!-- <span class="sr-only">(current)</span>--></a>
             </li>
             <li class="nav-item" th:classappend="(${active}=='Image')? 'active':''">
-                <a class="nav-link" href="#">Logo <!-- <span class="sr-only">(current)</span>--></a>
+                <!--<a class="nav-link" th:href="image/b.jpg"><img class="navbar-brand" th:src="image/b.jpg" alt="logo">-->
+                    <!--</a>-->
+                <a href="#" class="navbar-left"><img src="image/b.jpg"></a>
             </li>
 
             <li class="nav-item" th:classappend="(${active}=='link')? 'active':''">
@@ -29,15 +32,15 @@
                 <a class="nav-link" th:href="@{/borrowedbooks}">Contact Information</a>
             </li>
             <li class="nav-item" th:classappend="(${active}=='link')? 'active':''">
-                <a class="nav-link" th:href="@{/availablebooks}">Education</a>
+                <a class="nav-link" th:href="@{/education}">Education</a>
             </li>
             <li class="nav-item" th:classappend="(${active}=='link')? 'active':''">
-                <a class="nav-link" th:href="@{/listbooks}">Skills</a>
+                <a class="nav-link" th:href="@{/skill}">Skills</a>
             </li>
             <li class="nav-item" th:classappend="(${active}=='link')? 'active':''">
-                <a class="nav-link" th:href="@{/listbooks}">Experience</a>
+                <a class="nav-link" th:href="@{/experience}">Experience</a>
             <li class="nav-item" th:classappend="(${active}=='link')? 'active':''">
-                <a class="nav-link" th:href="@{/listbooks}">Refrences</a>
+                <a class="nav-link" th:href="@{/refrences}">Refrences</a>
             </li>
 
             </li>
@@ -48,16 +51,18 @@
             <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Search</button>
         </form>
     </div>
+</div>
 </nav>
 <P><img src="images/b.jpg" alt="Logo" width="100px" length="100"></P>
 
- <h1>My Resume</h1>
+ <div><h1>My Resume</h1>
 <p>Bishnu Subedi</p>
 <p> Subedib0@gmail.com</p>
 
+</div>
 <div class="container">
-    <div class="row">
-        <div class="col-sm">
+   <div>
+
            <h3> Education</h3>
 
 
@@ -70,26 +75,26 @@
             AAS in Information Technology 2013<br />
             <a href="/education"> Add Education</a>
 
-        </div>
-        <div class="col-sm">
+    </div>
 
+<div>
             <h4> Experience</h4>
             Care manager/ Med Tech<br/>
 
             Retail Associate<br/>
             <a href="/experience ">Add Experience</a><br/>
         </div>
-        <div class="col-sm ">
+<div>
             <h4> Skills</h4>
             SQL<br/>
             Java<br/>
             <a href="/skill"> Add Skills</a><br /> <br />
-        </div>
+
     </div>
 </div>
 
 
-<a href="/add"> Add Resume</a><br />
+<div class="container"><a href="/add"> Add Resume</a><br />
 
 <div th:each="resume : ${resumes}">
     <p th:text="${resume.name}"></p>
@@ -97,6 +102,7 @@
     <p th:text="${resume.phone}"></p>
     <h3> Email</h3>
     <p th:text="${resume.email}"></p>
+    <a th:href="@{/update/resume/{id}(id=${resume.id})}"> Update Resume</a>
 </div>
 
 <a href="/education"> Add Education</a><br />
@@ -124,6 +130,25 @@
 
 </div>
 
+
+  <!--<table></table>  </tr>-->
+
+    <!--<tr th:each="resume : ${resumes}">-->
+        <!--<td th:text="${resume.name}"> </td>-->
+        <!--<td th:text="${resume.email}"> </td>-->
+        <!--<td th:text="${resume.phone}"> </td>-->
+
+        <!--<td>-->
+
+            <!--<a th:href="@{/editresume/{id}(id=${resume.id})}"> Edit Resume</a>-->
+            <!--<a th:href="@{/editeducation/{id}(id=${education.id})}"> Edit Education</a> - -->
+            <!--<a th:href="@{/editexperience/{id}(id=${experience.id})}"> Edit Experience</a>-->
+            <!--<a th:href="@{/editskill/{id}(id=${experience.id})}"> Delete Skills</a>-->
+
+        <!--</td>-->
+    <!--</tr>-->
+    <!--</table>-->
+</div>
 
 
 <!--<p th:text="${resume.education}"></p>-->

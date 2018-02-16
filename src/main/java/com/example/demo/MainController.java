@@ -24,6 +24,8 @@ public class MainController {
     @Autowired
     SkillsRepository skillsRepository;
 
+    String defaultimage = "http://staceythewriter.com/temp/wp-content/uploads/2012/04/logo.jpg";
+
 
     @RequestMapping("/")
     public String listResume(Model model) {
@@ -47,6 +49,13 @@ public class MainController {
         }
         resumeRepository.save(resume);
         return "redirect:/";
+
+    }
+
+    @RequestMapping("/update/resume/{id}")
+    public String updateResume(@PathVariable("id") long id, Model model) {
+        model.addAttribute("resume", resumeRepository.findOne(id));
+        return "resumeform";
 
     }
 
@@ -135,6 +144,33 @@ public class MainController {
     }
 
 
+
+
+
+
+    @RequestMapping("/update/education/{id}")
+    public String updateEducation(@PathVariable("id") long id, Model model) {
+        model.addAttribute("education", educationRepository.findOne(id));
+        return "educationform";
+
+    }
+
+
+
+
+//    @RequestMapping("/experience/{id}")
+//    public String updateExperience(@PathVariable("id") long id, Model model) {
+//        model.addAttribute("experience", experienceRepository.findOne(id));
+//        return "experienceform";
+//
+//    }
+//
+//    @RequestMapping("/editskill/{id}")
+//    public String updateSkill(@PathVariable("id") long id, Model model) {
+//        model.addAttribute("skill", skillsRepository.findOne(id));
+//        return "skillform";
+//
+//    }
 }
 
 
