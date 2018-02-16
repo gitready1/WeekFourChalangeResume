@@ -8,7 +8,22 @@
     <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
 </head>
 <body>
+
+
 <nav th:replace="confirm :: navbarfragement"></nav>
+<div class="container">
+
+    <div>
+
+<h4> Experience</h4>
+Care manager/ Med Tech<br/>
+<p> Sunrise Senior Living, Silver Spring MD and Falls Church VA, Jan 2013 - Present</p>
+
+Retail Associate<br/>
+<p>MC Books and More, Montgomery College, Rockville, MD	Aug 2010 -May 2013</p>
+<a href="/experience ">Add Experience</a><br/>
+</div>
+<div>
 <form th:action="@{/experienceprocess}" th:object="${experience}" method="post">
     <input type ="hidden" th:field=" *{id}"/>
     Developer:<input type="text" th:field=" *{developer}"/>

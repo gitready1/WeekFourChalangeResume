@@ -45,7 +45,7 @@ public class MainController {
     public String processForm(@Valid @ModelAttribute("resume") Resume resume, BindingResult result, Model model) {
         if (result.hasErrors()) {
 
-            return "resume";
+            return "conform";
         }
         resumeRepository.save(resume);
         return "redirect:/";
@@ -55,7 +55,7 @@ public class MainController {
     @RequestMapping("/update/resume/{id}")
     public String updateResume(@PathVariable("id") long id, Model model) {
         model.addAttribute("resume", resumeRepository.findOne(id));
-        return "confirm";
+        return "resume";
 
     }
 
@@ -101,7 +101,7 @@ public class MainController {
     @RequestMapping("/a")
     public String listEducation(Model model) {
         model.addAttribute("educations", educationRepository.findAll());
-        return "confirm";
+        return "educationlist";
     }
 
     @GetMapping("/education")
@@ -115,7 +115,7 @@ public class MainController {
     public String educationProcessForm(@Valid @ModelAttribute("education") Education education, BindingResult result, Model model) {
         if (result.hasErrors()) {
 
-            return "confirm";
+            return "educationform";
         }
         educationRepository.save(education);
         return "redirect:/a";
@@ -125,7 +125,7 @@ public class MainController {
     @RequestMapping("/b")
     public String listexperience(Model model) {
         model.addAttribute("experiences", experienceRepository.findAll());
-        return "confirm";
+        return "experiencelist";
     }
 
     @GetMapping("/experience")
@@ -139,7 +139,7 @@ public class MainController {
     public String experienceProcessForm(@Valid @ModelAttribute("experience") Experience experience, BindingResult result, Model model) {
         if (result.hasErrors()) {
 
-            return "confirm";
+            return "experienceform";
         }
         experienceRepository.save(experience);
         return "redirect:/b";

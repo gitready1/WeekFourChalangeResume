@@ -25,37 +25,29 @@
 
         </p>
         <a href="/education"> Add Education</a>
-        <div class="container"><a href="/addeducation"> Add Resume</a><br />
 
 
+            <div th:each="education : ${educations}">
+                <p th:text="${education.major}"></p>
+                <h3> phone</h3>
+                <p th:text="${education.major}"></p>
+                <h3> Email</h3>
+
+                <a th:href="@{/update/education/{id}(id=${education.id})}"> Update Education</a>
+            </div>
 
         </div>
     </div>
 
-    </div>
-
-    <div>
-
-<form th:action="@{/educationprocess}" th:object="${education}" method="post">
-    <input type ="hidden" th:field=" *{id}"/>
-    Level:<input type="text" th:field=" *{level}"/>
-    <span th:if="${#fields.hasErrors('level')}"
-          th:errors="*{level}"></span><br/>
-
-    Major:<input type="text" th:field=" *{major}"/>
-    <span th:if="${#fields.hasErrors('major')}"
-          th:errors="*{major}"></span><br/>
-
-    <input type="submit" value="submit" />
-
-
-</form>
 
 
 
-  <!--<p>  <label for="Image">Image URL</label>-->
-      <!--<input th:field="${logo.image}" type="text" placeholder="Please Enter Image URL" />-->
+
+
+<!--<p>  <label for="Image">Image URL</label>-->
+<!--<input th:field="${logo.image}" type="text" placeholder="Please Enter Image URL" />-->
 
 <!--</p>-->
+</div>
 </body>
 </html>
