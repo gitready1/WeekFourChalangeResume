@@ -45,7 +45,7 @@ public class MainController {
     public String processForm(@Valid @ModelAttribute("resume") Resume resume, BindingResult result, Model model) {
         if (result.hasErrors()) {
 
-            return "confirm";
+            return "resume";
         }
         resumeRepository.save(resume);
         return "redirect:/";
@@ -55,8 +55,15 @@ public class MainController {
     @RequestMapping("/update/resume/{id}")
     public String updateResume(@PathVariable("id") long id, Model model) {
         model.addAttribute("resume", resumeRepository.findOne(id));
-        return "resumeform";
+        return "confirm";
 
+    }
+
+    @GetMapping("/resume")
+    public String resumeCheck(Model model) {
+
+
+        return "resume";
     }
 
     @GetMapping("/login")
@@ -78,6 +85,13 @@ public class MainController {
 
         return "refrence";
     }
+
+    @GetMapping("/coverletter")
+    public String CoverLetter(Model model) {
+
+
+        return "coverletter";}
+
     @GetMapping("/contact")
     public String Contact(Model model) {
 

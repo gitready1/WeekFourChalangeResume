@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"/>
+    <link href="./css/stylesheet.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+</head>
+<body>
+
+<div class="container">
+    <div class="jumbotron">
+        <h1>My Resume</h1>
+        <p>Bishnu Subedi</p>
+        <p> Subedib0@gmail.com</p>
+    </div>
+
+</div>
+<div class="container">
+    <div>
+
+        <h3> Education</h3>
+        </p> M.S., Computer Information Science <br/>
+        Dec. 2016 American College of Commerce and Technology , Falls Church VA</p>
+
+        <p>  B.S., Computer Information Systems, Sept. 2015,<br/>
+            American College of Commerce and Technology, Falls Church VA<br/></p>
+        <p>  A.A.S, Information Technologies, May 2013,<br/> Montgomery College, Rockville MD<br/>
+
+        </p>
+        <a href="/education"> Add Education</a>
+
+    </div>
+
+    <div>
+        <h4> Experience</h4>
+        Care manager/ Med Tech<br/>
+        <p> Sunrise Senior Living, Silver Spring MD and Falls Church VA, Jan 2013 - Present</p>
+
+        Retail Associate<br/>
+        <p>MC Books and More, Montgomery College, Rockville, MD	Aug 2010 -May 2013</p>
+        <a href="/experience ">Add Experience</a><br/>
+    </div>
+    <div>
+        <h4> Skills</h4>
+        SQL<br/>
+        Java<br/>
+        <a href="/skill"> Add Skills</a><br /> <br />
+        <div class="container"><a href="/add"> Add Resume</a><br />
+
+            <div th:each="resume : ${resumes}">
+                <p th:text="${resume.name}"></p>
+                <h3> phone</h3>
+                <p th:text="${resume.phone}"></p>
+                <h3> Email</h3>
+                <p th:text="${resume.email}"></p>
+                <a th:href="@{/update/resume/{id}(id=${resume.id})}"> Update Resume</a>
+            </div>
+
+    </div>
+</div>
+
+
+<div class="container"><a href="/add"> Add Resume</a><br />
+
+
+
+
+
+</div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+
+</body>
+</html>

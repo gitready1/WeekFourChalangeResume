@@ -42,7 +42,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
 //                .antmatchers: if you have a route you want to block off
 //                .permitall: dont need access pages everyone one can acees this route example:register
-                .antMatchers("/","/h2-console/**","/register").permitAll()
+                .antMatchers("/","/h2-console/**","/register/","/login","/","/summary","/education","/css/**","/image/**","/js/**"
+                ,"/image/**").permitAll()
 
 
 
@@ -51,8 +52,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 
 //                .access("hasAuthority('ROLE_USER') or hasAuthority('ROLE_ADMIN')")
-                .antMatchers("/login","/add").access("hasAuthority('APPLICANT')")
-                .antMatchers("/login","/refrences").access("hasAuthority('EMPLOYER')")
+                .antMatchers("/refrence","/add**","/update**").access("hasAuthority('APPLICANT')")
+                .antMatchers("/login","/").access("hasAuthority('EMPLOYER')")
                 .anyRequest().authenticated()
                 .and()
                 .formLogin().loginPage("/login").permitAll()
@@ -76,9 +77,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(AuthenticationManagerBuilder auth)
             throws Exception{
         auth.inMemoryAuthentication().
-                withUser("user").password("password").authorities("Applicant").
+                withUser("user").password("password").authorities("APPLICANT").
                 and().
-                withUser("bishnu").password("begreat").authorities("Employer");
+                withUser("bishnu").password("begreat").authorities("EMPLOYER");
 
 //        Database Authentication must come after in memory authentication
         auth
