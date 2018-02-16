@@ -24,7 +24,7 @@ public class MainController {
     @Autowired
     SkillsRepository skillsRepository;
 
-    String defaultimage = "http://staceythewriter.com/temp/wp-content/uploads/2012/04/logo.jpg";
+    //String defaultimage = "http://staceythewriter.com/temp/wp-content/uploads/2012/04/logo.jpg";
 
 
     @RequestMapping("/")
@@ -70,6 +70,19 @@ public class MainController {
 
 
         return "summary";
+    }
+
+    @GetMapping("/refrence")
+    public String Refrence(Model model) {
+
+
+        return "refrence";
+    }
+    @GetMapping("/contact")
+    public String Contact(Model model) {
+
+
+        return "contact";
     }
     @RequestMapping("/a")
     public String listEducation(Model model) {
