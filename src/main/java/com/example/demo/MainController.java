@@ -23,6 +23,8 @@ public class MainController {
 
     @Autowired
     SkillsRepository skillsRepository;
+    @Autowired
+    GroupRepository groupRepository;
 
     //String defaultimage = "http://staceythewriter.com/temp/wp-content/uploads/2012/04/logo.jpg";
 
@@ -55,7 +57,7 @@ public class MainController {
     @RequestMapping("/update/resume/{id}")
     public String updateResume(@PathVariable("id") long id, Model model) {
         model.addAttribute("resume", resumeRepository.findOne(id));
-        return "resume";
+        return "resumeform";
 
     }
 
@@ -72,12 +74,12 @@ public class MainController {
 
         return "login";
     }
-    @GetMapping("/summary")
-    public String Summary(Model model) {
-
-
-        return "summary";
-    }
+//    @GetMapping("/summary")
+//    public String Summary(Model model) {
+//
+//
+//        return "summary";
+//    }
 
     @GetMapping("/refrence")
     public String Refrence(Model model) {
@@ -152,7 +154,7 @@ public class MainController {
     }
     @RequestMapping("/update/experience/{id}")
     public String updateExperience(@PathVariable("id") long id, Model model) {
-        model.addAttribute("experience", educationRepository.findOne(id));
+        model.addAttribute("experience", experienceRepository.findOne(id));
         return "experienceform";
 
     }
@@ -191,26 +193,42 @@ public class MainController {
     @RequestMapping("/update/skill/{id}")
     public String updateskill(@PathVariable("id") long id, Model model) {
         model.addAttribute("skill", skillsRepository.findOne(id));
-        return "skilllist";
+        return "skillform";
+
+    }
+
+    @RequestMapping("/d")
+    public String listGroup(Model model) {
+        model.addAttribute("groups", groupRepository.findAll());
+        return "summary";
+    }
+
+    @GetMapping("/group")
+    public String groupForm(Model model) {
+
+        model.addAttribute("group", new Group());
+        return "groupform";
+    }
+
+    @PostMapping("/groupprocess")
+    public String groupProcessForm(@Valid @ModelAttribute("group") Group group, BindingResult result, Model model) {
+        if (result.hasErrors()) {
+
+            return "groupform";
+        }
+        groupRepository.save(group);
+        return "redirect:/d";
+    }
+
+    @RequestMapping("/update/group/{id}")
+    public String updateGroup(@PathVariable("id") long id, Model model) {
+        model.addAttribute("group", groupRepository.findOne(id));
+        return "groupform";
 
     }
 
 
 
-
-//    @RequestMapping("/experience/{id}")
-//    public String updateExperience(@PathVariable("id") long id, Model model) {
-//        model.addAttribute("experience", experienceRepository.findOne(id));
-//        return "experienceform";
-//
-//    }
-//
-//    @RequestMapping("/editskill/{id}")
-//    public String updateSkill(@PathVariable("id") long id, Model model) {
-//        model.addAttribute("skill", skillsRepository.findOne(id));
-//        return "skillform";
-//
-//    }
 }
 
 

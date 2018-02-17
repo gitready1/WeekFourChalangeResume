@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<html lang="en" xmlns:th="www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
     <title>Title</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"/>
     <link href="./css/stylesheet.css" rel="stylesheet">
@@ -9,32 +9,18 @@
 </head>
 <body>
 <nav th:replace="confirm :: navbarfragement"></nav>
-
-<div class="container">
-    <div><h3>Please find the references below:</h3>
-
-<p>Name:  Paul Spero</p>
-
-<p>Position:  Senior Developer</p>
-
-<p>Company: Massachusetts Health Exchange</p>
-
-<p>Phone: 703-934-4455</p>
+<form th:action="@{/groupprocess}" th:object="${group}" method="post">
+    <input type ="hidden" th:field=" *{id}"/>
+    summary:<input type="text" th:field=" *{summary}"/>
+    <span th:if="${#fields.hasErrors('summary')}"
+          th:errors="*{summary}"></span><br/>
 
 
-</div>
-    <div>
-<p>Name:  Kim Sapiro</p>
 
-<p>Position:  Project Manager</p>
 
-<p>Company: Washington State Dept. of Social & Health Services</p>
+    <input type="submit" value="submit" />
+</form>
 
-<p>Phone : 202-809-0691</p>
-    </div>
-</div>
 <div th:replace="confirm :: scriptfragement"></div>
-
-
 </body>
 </html>

@@ -11,85 +11,22 @@
 
 <nav th:replace="confirm :: navbarfragement"></nav>
 
-<!--<nav th:fragment="navbarfragement" class="navbar navbar-expand-lg navbar-light bg-light">
-    <!--<div class="row" th:fragment="navbar">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item" th:classappend="(${active}=='home')? 'active':''">
-                <a class="nav-link" href="#">Home <!-- <span class="sr-only">(current)</span>--></a>
-           <!-- </li>
-            <li class="nav-item" th:classappend="(${active}=='Image')? 'active':''">
-                <a class="nav-link" href="#"><img src="images/b.jpg" alt="Logo" width="100px" length="100"> <!-- <span class="sr-only">(current)</span>--></a>
-            <!--</li>-->
-
-            <!--<li class="nav-item" th:classappend="(${active}=='link')? 'active':''">-->
-                <!--<a class="nav-link" href="summary.html">Summary</a>-->
-            <!--</li>-->
-            <!--<li class="nav-item" th:classappend="(${active}=='link')? 'active':''">-->
-                <!--<a class="nav-link" th:href="@{/borrowedbooks}">Contact Information</a>-->
-            <!--</li>-->
-            <!--<li class="nav-item" th:classappend="(${active}=='link')? 'active':''">-->
-                <!--<a class="nav-link" th:href="@{/availablebooks}">Education</a>-->
-            <!--</li>-->
-            <!--<li class="nav-item" th:classappend="(${active}=='link')? 'active':''">-->
-                <!--<a class="nav-link" th:href="@{/listbooks}">Skills</a>-->
-            <!--</li>-->
-            <!--<li class="nav-item" th:classappend="(${active}=='link')? 'active':''">-->
-                <!--<a class="nav-link" th:href="@{/listbooks}">Experience</a>-->
-            <!--<li class="nav-item" th:classappend="(${active}=='link')? 'active':''">-->
-                <!--<a class="nav-link" th:href="@{/listbooks}">Refrences</a>-->
-            <!--</li>-->
-
-            <!--</li>-->
-
-        <!--</ul>-->
-        <!--<form class="form-inline my-2 my-lg-0">-->
-            <!--<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"/>-->
-            <!--<button class="btn btn-outline-info my-2 my-sm-0" type="submit">Search</button>-->
-        <!--</form>-->
-    <!--</div>-->
-    <!--</div>-->
-<!--</nav>&ndash;&gt;-->
 
 <div><h1>Professional Summary</h1>
 
 Exceptionally focused and reliable Entry Level Java Developer with an outstanding work ethic and computer language knowledge base. Adept at explaining complex computer development concepts and processes to a variety of professional and lay audiences in a clear and accessible manner. Able to work well independently or as part of a professional computer program development team.
 
-    <table>
 
 
 
-        <tr>
+    <div th:each="group: ${groups}">
+        <p th:text="${group.summary}"></p>
+        <h3> Summary</h3>
 
 
 
-            <th>name</th>
-            <th>email</th>
-            <th>Phone</th>
-
-
-        </tr>
-
-        <tr th:each="resume : ${resumes}">
-            <td th:text="${resume.name}"> </td>
-            <td th:text="${resume.email}"> </td>
-            <td th:text="${resume.phone}"> </td>
-
-            <td>
-
-                <a th:href="@{/update/{id}(id=${RESUME.id})}"> Update</a> -
-                <a th:href="@{/detail/{id}(id=${course.id})}"> Details</a> -
-                <a th:href="@{/delete/{id}(id=${course.id})}"> Delete</a>
-
-
-
-            </td>
-        </tr>
-    </table>
+    </div>
 
 </div>
 </body>
