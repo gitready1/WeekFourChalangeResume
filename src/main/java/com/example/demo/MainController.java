@@ -121,6 +121,12 @@ public class MainController {
         return "redirect:/a";
     }
 
+    @RequestMapping("/update/education/{id}")
+    public String updateEducation(@PathVariable("id") long id, Model model) {
+        model.addAttribute("education", educationRepository.findOne(id));
+        return "educationform";
+
+    }
 
     @RequestMapping("/b")
     public String listexperience(Model model) {
@@ -144,6 +150,13 @@ public class MainController {
         experienceRepository.save(experience);
         return "redirect:/b";
     }
+    @RequestMapping("/update/experience/{id}")
+    public String updateExperience(@PathVariable("id") long id, Model model) {
+        model.addAttribute("experience", educationRepository.findOne(id));
+        return "experienceform";
+
+    }
+
 
 
     @RequestMapping("/c")
@@ -175,10 +188,10 @@ public class MainController {
 
 
 
-    @RequestMapping("/update/education/{id}")
-    public String updateEducation(@PathVariable("id") long id, Model model) {
-        model.addAttribute("education", educationRepository.findOne(id));
-        return "educationform";
+    @RequestMapping("/update/skill/{id}")
+    public String updateskill(@PathVariable("id") long id, Model model) {
+        model.addAttribute("skill", skillsRepository.findOne(id));
+        return "skilllist";
 
     }
 
