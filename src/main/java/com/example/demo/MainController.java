@@ -74,12 +74,12 @@ public class MainController {
 
         return "login";
     }
-//    @GetMapping("/summary")
-//    public String Summary(Model model) {
-//
-//
-//        return "summary";
-//    }
+    @GetMapping("/summary")
+    public String Summary(Model model) {
+
+
+        return "summary";
+    }
 
     @GetMapping("/refrence")
     public String Refrence(Model model) {
