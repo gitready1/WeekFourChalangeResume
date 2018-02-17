@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="www.thymeleaf.org">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4" >
 <head>
     <meta charset="UTF-8"/>
     <title>Title</title>
@@ -24,14 +24,14 @@
         <p>  A.A.S, Information Technologies, May 2013,<br/> Montgomery College, Rockville MD<br/>
 
         </p>
-        <a href="/education"> Add Education</a>
+        <a sec:authorize="hasAuthority('APPLICANT')"href="/education"> Add Education</a>
 
 
             <div th:each="education : ${educations}">
                 <p th:text="${education.major}"></p>
-                <h3> phone</h3>
-                <p th:text="${education.major}"></p>
-                <h3> Email</h3>
+                <h3> major</h3>
+                <p th:text="${education.level}"></p>
+                <h3> Level</h3>
 
                 <a th:href="@{/update/education/{id}(id=${education.id})}"> Update Education</a>
             </div>

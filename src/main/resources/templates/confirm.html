@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4" >
 <head>
     <meta charset="UTF-8"/>
     <title>Resume</title>
@@ -39,7 +39,7 @@
             <li class="nav-item" th:classappend="(${active}=='link')? 'active':''">
                 <a class="nav-link" th:href="@{/b}">Experience</a>
             <li class="nav-item" th:classappend="(${active}=='link')? 'active':''">
-                <a class="nav-link" th:href="@{/refrence}">Refrences</a>
+                <a  sec:authorize="hasAuthority('APPLICANT')" class="nav-link" th:href="@{/refrence}">Refrences</a>
         </li>
             <li class="nav-item" th:classappend="(${active}=='link')? 'active':''">
 
@@ -86,7 +86,7 @@
        <p>  A.A.S, Information Technologies, May 2013,<br/> Montgomery College, Rockville MD<br/>
 
        </p>
-            <a href="/education"> Add Education</a>
+            <a sec:authorize="hasAuthority('APPLICANT')" href="/education"> Add Education</a>
 
     </div>
 
@@ -97,7 +97,7 @@
 
             Retail Associate<br/>
     <p>MC Books and More, Montgomery College, Rockville, MD	Aug 2010 -May 2013</p>
-            <a href="/experience ">Add Experience</a><br/>
+            <a sec:authorize="hasAuthority('APPLICANT')"href="/experience ">Add Experience</a><br/>
         </div>
 <div>
             <h4> Skills</h4>
@@ -109,7 +109,7 @@
 </div>
 
 
-<div class="container"><a href="/add"> Add Resume</a><br />
+<div class="container"><a sec:authorize="hasAuthority('APPLICANT')" href="/add"> Add Resume</a><br />
 
 <div th:each="resume : ${resumes}">
     <p th:text="${resume.name}"></p>
@@ -117,9 +117,11 @@
     <p th:text="${resume.phone}"></p>
     <h3> Email</h3>
     <p th:text="${resume.email}"></p>
-     <a th:href="@{/update/resume/{id}(id=${resume.id})}"> Update Resume</a>
+     <a sec:authorize="hasAuthority('APPLICANT')" th:href="@{/update/resume/{id}(id=${resume.id})}"> Update Resume</a>
 
 </div>
+</div>
+    <h3 sec:authorize="hasAuthority('EMPLOYER')">You can see this because you are an Employer</h3>
 <!--</div>-->
 
 <!--<a href="/education"> Add Education</a><br />-->
