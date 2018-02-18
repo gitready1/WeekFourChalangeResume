@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="www.thymeleaf.org">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4" >
+
 <head>
     <meta charset="UTF-8" />
     <title>Title</title>
@@ -9,6 +10,17 @@
 </head>
 <body>
 <nav th:replace="confirm :: navbarfragement"></nav>
+
+
+<div class="container">
+    <h3>Professional Summary</h3>
+
+    Exceptionally focused and reliable Entry Level Java Developer with an outstanding work ethic and computer language knowledge base. Adept at explaining complex computer development concepts and processes to a variety of professional and lay audiences in a clear and accessible manner. Able to work well independently or as part of a professional computer program development team.
+
+
+    <p>3013517294</p>
+</div>
+
 <form th:action="@{/groupprocess}" th:object="${group}" method="post">
     <input type ="hidden" th:field=" *{id}"/>
     summary:<input type="text" th:field=" *{summary}"/>
@@ -16,11 +28,39 @@
           th:errors="*{summary}"></span><br/>
 
 
-
-
     <input type="submit" value="submit" />
 </form>
+<div class container>
+    <a sec:authorize="hasAuthority('APPLICANT')" href="/group"> Add Summary</a>
 
+    <div th:each="group: ${groups}">
+        <p th:text="${group.summary}"></p>
+        <h2> Summary</h2>
+        <a th:href="@{/update/group/{id}(id=${group.id})}"> Update Summary</a>
+    </div>
+
+
+</div>
+
+<!--<form th:action="@{/coverprocess}" th:object="${group}" method="post">-->
+    <!--<input type ="hidden" th:field=" *{id}"/>-->
+    <!--Cover Letter:<input type="text" th:field=" *{coverletter}"/>-->
+    <!--<span th:if="${#fields.hasErrors('coverletter')}"-->
+          <!--th:errors="*{coverletter}"></span><br/>-->
+
+
+    <!--<input type="submit" value="submit" />-->
+<!--</form>-->
+
+<!--<form th:action="@{/contactprocess}" th:object="${group}" method="post">-->
+    <!--<input type ="hidden" th:field=" *{id}"/>-->
+    <!--Contact:<input type="text" th:field=" *{contact}"/>-->
+    <!--<span th:if="${#fields.hasErrors('contact')}"-->
+          <!--th:errors="*{contact}"></span><br/>-->
+
+
+    <!--<input type="submit" value="submit" />-->
+<!--</form>-->
 <div th:replace="confirm :: scriptfragement"></div>
 </body>
 </html>

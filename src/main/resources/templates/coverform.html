@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4" >
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"/>
+    <link href="./css/stylesheet.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+</head>
+<body>
+<nav th:replace="confirm :: navbarfragement"></nav>
+
+
+<div class="container">
+    <h3>Professional Summary</h3>
+
+
+
+
+    <p>3013517294</p>
+</div>
+
+<form th:action="@{/groupprocess}" th:object="${group}" method="post">
+    <input type ="hidden" th:field=" *{id}"/>
+    summary:<input type="text" th:field=" *{summary}"/>
+    <span th:if="${#fields.hasErrors('summary')}"
+          th:errors="*{summary}"></span><br/>
+
+
+    <input type="submit" value="submit" />
+</form>
+<div class container>
+    <a sec:authorize="hasAuthority('APPLICANT')" href="/s"> Add Cover Letter </a>
+
+    <div th:each="group: ${groups}">
+        <p th:text="${group.coverletter}"></p>
+        <h2> Summary</h2>
+        <a th:href="@{/update/cover/{id}(id=${group.id})}"> Update Coverletter</a>
+    </div>
+
+
+</div>
+
+<form th:action="@{/coverprocess}" th:object="${group}" method="post">
+<input type ="hidden" th:field=" *{id}"/>
+Cover Letter:<input type="text" th:field=" *{coverletter}"/>
+<span th:if="${#fields.hasErrors('coverletter')}"
+th:errors="*{coverletter}"></span><br/>
+
+
+<input type="submit" value="submit" />
+</form>
+
+<form th:action="@{/contactprocess}" th:object="${group}" method="post">
+<input type ="hidden" th:field=" *{id}"/>
+Contact:<input type="text" th:field=" *{contact}"/>
+<span th:if="${#fields.hasErrors('contact')}"
+th:errors="*{contact}"></span><br/>
+
+
+<input type="submit" value="submit" />
+</form>
+<div th:replace="confirm :: scriptfragement"></div>
+</body>
+</html>

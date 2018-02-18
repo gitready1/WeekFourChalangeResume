@@ -227,6 +227,66 @@ public class MainController {
 
     }
 
+    @RequestMapping("/e")
+    public String listCover(Model model) {
+        model.addAttribute("groups", groupRepository.findAll());
+        return "coverletter";
+    }
+
+    @GetMapping("/cover")
+    public String coverForm(Model model) {
+
+        model.addAttribute("group", new Group());
+        return "groupform";
+    }
+
+    @PostMapping("/coverprocess")
+    public String coverProcessForm(@Valid @ModelAttribute("group") Group group, BindingResult result, Model model) {
+        if (result.hasErrors()) {
+
+            return "groupform";
+        }
+        groupRepository.save(group);
+        return "redirect:/e";
+    }
+
+    @RequestMapping("/update/cover/{id}")
+    public String update(@PathVariable("id") long id, Model model) {
+        model.addAttribute("group", groupRepository.findOne(id));
+        return "groupform";
+
+    }
+
+    @RequestMapping("/f")
+    public String listcontact(Model model) {
+        model.addAttribute("groups", groupRepository.findAll());
+        return "contact";
+    }
+
+    @GetMapping("/addcontact")
+    public String contactForm(Model model) {
+
+        model.addAttribute("group", new Group());
+        return "groupform";
+    }
+
+    @PostMapping("/contactprocess")
+    public String contactProcessForm(@Valid @ModelAttribute("group") Group group, BindingResult result, Model model) {
+        if (result.hasErrors()) {
+
+            return "groupform";
+        }
+        groupRepository.save(group);
+        return "redirect:/f";
+    }
+
+    @RequestMapping("/update/contact/{id}")
+    public String updateContact(@PathVariable("id") long id, Model model) {
+        model.addAttribute("group", groupRepository.findOne(id));
+        return "groupform";
+
+    }
+
 
 
 }

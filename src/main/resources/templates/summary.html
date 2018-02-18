@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4" >
 <head>
     <meta charset="UTF-8"/>
     <title>Title</title>
@@ -18,12 +18,14 @@
 Exceptionally focused and reliable Entry Level Java Developer with an outstanding work ethic and computer language knowledge base. Adept at explaining complex computer development concepts and processes to a variety of professional and lay audiences in a clear and accessible manner. Able to work well independently or as part of a professional computer program development team.
 
 
-
+<div class container>
+    <a sec:authorize="hasAuthority('APPLICANT')" href="/group"> Add Summary</a>
 
     <div th:each="group: ${groups}">
         <p th:text="${group.summary}"></p>
         <h2> Summary</h2>
-
+        <a th:href="@{/update/group/{id}(id=${group.id})}"> Update Group</a>
+    </div>
 
 
     </div>

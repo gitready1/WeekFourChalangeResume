@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="www.thymeleaf.org" xmlns="http://www.w3.org/1999/html"
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4" >
       xmlns:width="http://www.w3.org/1999/xhtml">>>>
 <head>
     <meta charset="UTF-8">
@@ -35,6 +35,27 @@ If you do not wish to consider me for your posted job, I will be interested on a
     301-351-7294
 </div>
 </div>
+<div class container>
+    <a sec:authorize="hasAuthority('APPLICANT')" href="/s"> Add Cover Letter </a>
+
+    <div th:each="group: ${groups}">
+        <p th:text="${group.coverletter}"></p>
+        <h2> Summary</h2>
+        <a th:href="@{/update/cover/{id}(id=${group.id})}"> Update Coverletter</a>
+    </div>
+</div>
+
+<!--<div class container>-->
+    <!--<a sec:authorize="hasAuthority('APPLICANT')" href="/skill"> Add SCover Letter</a>-->
+
+    <!--<div th:each="group: ${groups}">-->
+        <!--<p th:text="${group.coverletter}"></p>-->
+        <!--<h2> Cover Letter</h2>-->
+        <!--<a th:href="@{/update/group/{id}(id=${group.id})}"> Update Cover Letter</a>-->
+    <!--</div>-->
+
+
+<!--</div>-->
 
 <div th:replace="confirm :: scriptfragement"></div>
 
